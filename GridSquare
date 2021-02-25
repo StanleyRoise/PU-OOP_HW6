@@ -1,0 +1,42 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+
+public class GridSquare
+{
+    static GridSquareComponent gsc;
+
+    public static void main(String[] args)
+    {
+        JFrame frame;
+        frame = new JFrame("Grid Homework"); //Title
+        frame.setSize(905,930); // Size of Window
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Allows the program to end when click exit
+        frame.setResizable(false); // User cannot resize the window
+        gsc = new GridSquareComponent();//Make a new component (gsc = gridsquarecomponent xD)
+
+        frame.add(gsc); //add the gsc component to the frame
+
+        GridSquareMouseListener gsml = new GridSquareMouseListener();
+        frame.addMouseListener(gsml);
+
+
+        frame.setVisible(true);
+
+        Scanner s = new Scanner(System.in);
+
+        while (true)
+        {
+            s.next();
+            gsc.repaint();
+        }
+
+    }
+
+    private void repaint() {
+    }
+}
+
+
+
+

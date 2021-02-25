@@ -1,0 +1,34 @@
+import java.awt.*;
+import javax.swing.*;
+import java.util.*;
+
+public class GridSquareComponent extends JComponent {
+    private static final Color BLACK = Color.BLACK;
+    private static final Color WHITE = Color.white;
+    private static final Color RED = Color.RED;
+    int ROWS = 64;
+    int COLUMNS = 64;
+
+
+    public void paintComponent(Graphics g) {
+        int x, y;
+        boolean blackSquare = true;
+        boolean whiteSquare = false;
+
+        for (y = 0; y < ROWS; y++) {
+            for (x = 0; x < COLUMNS; x++) {
+                if (blackSquare)
+                    g.setColor(BLACK);
+                else if (whiteSquare == false)
+                    g.setColor(WHITE);
+                else
+                    g.setColor(RED);
+
+                blackSquare = !blackSquare;
+
+                g.fillRect((x * (900 / COLUMNS)), (y * (900 / ROWS)), 900 / COLUMNS, 900 / ROWS);
+            }
+        }
+    }
+}
+
